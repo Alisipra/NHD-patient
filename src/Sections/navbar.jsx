@@ -55,7 +55,7 @@ function NavBars() {
                   <Link to={"/login"} className="dropdown-item">
                     Patient
                   </Link>
-                  <a href="http://localhost:5174" className="dropdown-item">
+                  <a href="https://nhd-hospital.vercel.app" className="dropdown-item">
                     Staff
                   </a>
                 </NavDropdown>
