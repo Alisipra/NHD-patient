@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 
+const url="https://nhd-server.vercel.app/"
 
 const notify = (text) => toast(text);
 
@@ -25,14 +26,14 @@ function Service() {
     if (data.isAuthenticated !== true) {
       notify("Please Login to get your reports");
     }
-  }, [data.isAuthenticated]); // ✅ Run only when authentication status changes
+  }, [data.isAuthenticated]); // Run only when authentication status changes
 
   // Fetch reports only if authenticated
   useEffect(() => {
-    if (data.isAuthenticated) { // ✅ Fetch reports only when user is logged in
+    if (data.isAuthenticated) { // Fetch reports only when user is logged in
       const fetchReports = async () => {
         try {
-          const response = await axios.get(`http://localhost:1000/api/reports/${data.patientID}`);
+          const response = await axios.get(`${url}/api/reports/${data.patientID}`);
           // dispatch(updateReports(response.data)); 
         } catch (error) {
           console.error("Error fetching reports:", error);
@@ -41,7 +42,7 @@ function Service() {
 
       fetchReports();
     }
-  }, [dispatch, data.isAuthenticated, data.patientID]); // ✅ Depend on isAuthenticated and patientID
+  }, [dispatch, data.isAuthenticated, data.patientID]); //  Depend on isAuthenticated and patientID
 
   return (
     <div>

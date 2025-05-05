@@ -15,10 +15,9 @@ function AboutUs() {
                 <ul>
                   <li>
                     <img className="img1" src={about1} alt="img" />
-                  </li>
-                  <li>
                     <img className="img2" src={about2} alt="img" />
                   </li>
+                  
                   <li>
                     <img className="img3" src={about3} alt="img" />
                   </li>

@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./account.css";
 import MobileImg from "../Assets/mobile.f82d7322.png";
 import WomanImg from "../Assets/women.eb5c49c5.png";
-
+const url="http://localhost:1000"
 const notify = (text) => toast(text);
 
 function Account() {
@@ -32,16 +32,16 @@ function Account() {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        let response = await fetch("http://localhost:1000/doctors/"); // Update with your correct API URL
+        let response = await fetch(`${url}/doctors/`); // Update with your correct API URL
         let data = await response.json();
-        console.log("data", data);
+    
         setDoctors(data);
       } catch (error) {
         console.error("Error fetching doctors:", error);
       }
     };
     fetchDoctors();
-    console.log("doc state", doctors);
+    
   }, []);
 
   // Handle input changes

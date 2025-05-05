@@ -3,7 +3,7 @@ import {
   applyMiddleware,
   compose,
 } from "redux";
-import {thunk} from "redux-thunk"; // ✅ Use default import
+import {thunk} from "redux-thunk"; //  Use default import
 
 import { rootReducer } from "./index.js";
 
@@ -33,10 +33,10 @@ const persistedState = loadFromLocalStorage();
 const store = createStore(
   rootReducer,
   persistedState,
-  composeEnhancers(applyMiddleware(thunk)) // ✅ Corrected thunk import
+  composeEnhancers(applyMiddleware(thunk)) //  Corrected thunk import
 );
 
 store.subscribe(() => saveToLocalStorage(store.getState()));
 
-// ✅ Ensure store is exported as default
+// Ensure store is exported as default
 export default store;

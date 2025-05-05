@@ -1,12 +1,12 @@
 import * as types from "./types";
 import axios from "axios";
-
+const url="https://nhd-server.vercel.app"
 //login user
 export const authLogin = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_USER_REQUEST });
     const res = await axios.post(
-      "http://localhost:1000/patients/login",
+      `${url}/patients/login`,
       data
     );
     dispatch({
@@ -21,7 +21,7 @@ export const authLogin = (data) => async (dispatch) => {
     
     return res.data;
   } catch (error) {
-    console.error("❌ Axios Error: ", error);
+    console.error(" Axios Error: ", error);
 
     // Safer error handling to prevent "undefined" issues
     const errorMessage = error?.response?.data?.message || "Login failed. Please try again.";

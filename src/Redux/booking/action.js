@@ -1,6 +1,6 @@
 import * as types from "./types";
 import axios from "axios";
-
+const url ="https://nhd-server.vercel.app"
 // createBooking Action
 export const createBooking = (data) => async (dispatch) => {
   try {
@@ -15,7 +15,7 @@ export const createBooking = (data) => async (dispatch) => {
 
     console.log("Sending Data:", validData); // Debugging
 
-    const res = await axios.post(`http://localhost:1000/appointments/create`, validData);
+    const res = await axios.post(`${url}/appointments/create`, validData);
 
     console.log("Booking Response:", res.data);
 
@@ -35,7 +35,7 @@ export const createBooking = (data) => async (dispatch) => {
 export const createPatient = (data) => async (dispatch) => {
   try {
     const res = await axios.post(
-      `http://localhost:1000/patients/register`,
+      `${url}/patients/register`,
       data
     );
     return res.data
@@ -44,15 +44,4 @@ export const createPatient = (data) => async (dispatch) => {
   }
 };
 
-// get post
-// export const getPost = () => async (dispatch) => {
-//   try {
-//     dispatch({ type: types.GET_POST_REQUEST });
-//     const res = await axios.get(
-//       `https://zany-gray-clam-gear.cyclic.app/appointments`
-//     );
-//     dispatch({ type: types.GET_POST_SUCCESS, payload: res.data.post });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+
