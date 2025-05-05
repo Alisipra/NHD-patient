@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./account.css";
 import MobileImg from "../Assets/mobile.f82d7322.png";
 import WomanImg from "../Assets/women.eb5c49c5.png";
-const url="http://localhost:1000"
+const url="https://nhd-server.vercel.app"
 const notify = (text) => toast(text);
 
 function Account() {

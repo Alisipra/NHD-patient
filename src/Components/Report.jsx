@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 
-const url="https://nhd-server.vercel.app/"
+const url="https://nhd-server.vercel.app"
 
 const notify = (text) => toast(text);
 

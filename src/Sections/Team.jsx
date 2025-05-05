@@ -23,7 +23,7 @@ function Team() {
             <div className="col-lg-4 col-sm-6 mb-30">
               <div className="team-member">
                 <div className="team-media">
-                  <img src={img3} alt="img" />
+                  <img src={img3} alt="img" loading="lazy"/>
                 </div>
                 <div className="team-info">
                   <div className="team-info-comntent">
@@ -62,7 +62,7 @@ function Team() {
             <div className="col-lg-4 col-sm-6 mb-30">
               <div className="team-member">
                 <div className="team-media">
-                  <img src={img1} alt="img" />
+                  <img src={img1} alt="img" loading="lazy"/>
                 </div>
                 <div className="team-info">
                   <div className="team-info-comntent">
@@ -101,7 +101,7 @@ function Team() {
             <div className="col-lg-4 col-sm-6 mb-30">
               <div className="team-member">
                 <div className="team-media">
-                  <img src={img2} alt="img" />
+                  <img src={img2} alt="img" loading="lazy"/>
                 </div>
                 <div className="team-info">
                   <div className="team-info-comntent">
@@ -140,7 +140,7 @@ function Team() {
             <div className="col-lg-4 col-sm-6 mb-30">
               <div className="team-member">
                 <div className="team-media">
-                  <img src={img4} alt="img" />
+                  <img src={img4} alt="img" loading="lazy"/>
                 </div>
                 <div className="team-info">
                   <div className="team-info-comntent">
@@ -179,7 +179,7 @@ function Team() {
             <div className="col-lg-4 col-sm-6 mb-30">
               <div className="team-member active">
                 <div className="team-media">
-                  <img src={img5} alt="img" />
+                  <img src={img5} alt="img" loading="lazy"/>
                 </div>
                 <div className="team-info">
                   <div className="team-info-comntent">

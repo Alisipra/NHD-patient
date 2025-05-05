@@ -7,7 +7,7 @@ import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import ToTop from "../Sections/totop";
 import { Link } from "react-router-dom";
 import axios from "axios";
-const url="https://nhd-server.vercel.app/"
+const url="https://nhd-server.vercel.app"
 function OurTeam() {
   const [doctors, setDoctors] = useState([]);
 
