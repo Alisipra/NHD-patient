@@ -1,6 +1,6 @@
 import * as types from "./types";
 import axios from "axios";
-const url ="https://nhd-server.vercel.app"
+const url ="http://localhost:1000"
 // createBooking Action
 export const createBooking = (data) => async (dispatch) => {
   try {
@@ -33,11 +33,14 @@ export const createBooking = (data) => async (dispatch) => {
 
 // create patient
 export const createPatient = (data) => async (dispatch) => {
+  console.log("Sending Patient Data:", data);
   try {
     const res = await axios.post(
       `${url}/patients/register`,
       data
     );
+    
+
     return res.data
   } catch (error) {
     console.log(error);

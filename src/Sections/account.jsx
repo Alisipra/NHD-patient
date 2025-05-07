@@ -11,6 +11,7 @@ const notify = (text) => toast(text);
 
 function Account() {
   let initialData = {
+    patientID: "",
     patientName: "",
     age: "",
     gender: "",
@@ -21,6 +22,14 @@ function Account() {
     time: "",
     date: "",
     doctorID: "", // Store selected doctor ID
+
+
+    // optional but added as placeholder
+             
+      emergencyNo: null,
+      bloodGroup: "N/A",
+      ward: "General",
+      password: "default123"
   };
 
   const [formData, setFormData] = useState(initialData);
@@ -54,6 +63,7 @@ function Account() {
     e.preventDefault();
 
     if (
+      !formData.patientID ||
       !formData.patientName ||
       !formData.email ||
       !formData.time ||
@@ -66,10 +76,12 @@ function Account() {
 
     try {
       setLoading(true);
-      dispatch(createPatient({ ...formData, patientID: Date.now() })).then(
+      dispatch(createPatient({ ...formData })).then(
         (res) => {
-          let data = { ...formData, patientID: res.id };
+          let data = { ...formData };
+          
           dispatch(createBooking(data));
+          
           setFormData(initialData);
           setLoading(false);
           notify("Appointment Booked Successfully");
@@ -93,6 +105,17 @@ function Account() {
                   <div className="appointment-form form-wraper">
                     <h3>Book Appointment</h3>
                     <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <input
+                          type="number"
+                          className="form-control"
+                          placeholder="CNIC"
+                          value={formData.patientID}
+                          name="patientID"
+                          onChange={handleFormChange}
+                          required
+                        />
+                      </div>
                       <div className="form-group">
                         <input
                           type="email"
