@@ -1,6 +1,6 @@
 import * as types from "./types";
 import axios from "axios";
-const url ="http://localhost:1000"
+const url ="https://nhd-server.vercel.app"
 // createBooking Action
 export const createBooking = (data) => async (dispatch) => {
   try {
