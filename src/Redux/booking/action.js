@@ -1,21 +1,60 @@
 import * as types from "./types";
 import axios from "axios";
-const url ="http://localhost:1000"
+const url="https://nhd-server.vercel.app"
 // createBooking Action
+// export const createBooking = (data) => async (dispatch) => {
+//   try {
+//     dispatch({ type: types.CREATE_BOOKING_REQUEST });
+
+//     // Ensure data is valid before sending
+//     const validData = {
+//       ...data,
+//       address: data.address?.trim() || "Not provided", // Default if empty
+//       age: Math.max(1, Number(data.age)), // Ensure valid age (no negative values)
+//     };
+
+//     console.log("Sending Data:", validData); // Debugging
+
+//     const res = await axios.post(`${url}/appointments/create`, validData);
+
+//     console.log("Booking Response:", res.data);
+
+//     dispatch({ type: types.CREATE_BOOKING_SUCCESS, payload: res.data });
+
+//   } catch (error) {
+//     console.error("Booking Error:", error.response ? error.response.data : error.message);
+
+//     dispatch({
+//       type: types.CREATE_BOOKING_FAILURE,
+//       payload: error.response?.data?.message || "Something went wrong.",
+//     });
+//   }
+// };
+
+
 export const createBooking = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.CREATE_BOOKING_REQUEST });
 
-    // Ensure data is valid before sending
+    const token = localStorage.getItem("patientToken"); // ✅ Add this
+
     const validData = {
       ...data,
-      address: data.address?.trim() || "Not provided", // Default if empty
-      age: Math.max(1, Number(data.age)), // Ensure valid age (no negative values)
+      address: data.address?.trim() || "Not provided",
+      age: Math.max(1, Number(data.age)),
     };
 
-    console.log("Sending Data:", validData); // Debugging
+    console.log("Sending Data:", validData);
 
-    const res = await axios.post(`${url}/appointments/create`, validData);
+    const res = await axios.post(
+      `${url}/appointments/create`,
+      validData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // ✅ Add token to request
+        },
+      }
+    );
 
     console.log("Booking Response:", res.data);
 
@@ -30,6 +69,7 @@ export const createBooking = (data) => async (dispatch) => {
     });
   }
 };
+
 
 // create patient
 export const createPatient = (data) => async (dispatch) => {

@@ -43,3 +43,8 @@ a:hover {
 .forgotPass button {
   border-radius: 10px; 
 }
+#btn_login{
+  background-color: #199A8E;
+  color: white;
+  font-weight: bold;
+}

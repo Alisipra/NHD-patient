@@ -45,6 +45,7 @@ function NavBars() {
                   className="nav-link"
                   onClick={() => {
                     dispatch({ type: "AUTH_LOGOUT" });
+                    localStorage.removeItem("patientToken")
                     notify("Logged out");
                   }}
                 >

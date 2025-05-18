@@ -1,6 +1,7 @@
 import * as types from "./types";
 import axios from "axios";
 const url="https://nhd-server.vercel.app"
+
 //login user
 export const authLogin = (data) => async (dispatch) => {
   try {
@@ -29,7 +30,10 @@ export const authLogin = (data) => async (dispatch) => {
       type: types.LOGIN_USER_ERROR,
       payload: { message: errorMessage },
     });
-
+     return {
+      success: false,
+      message: errorMessage, // ✅ return structured error object
+    };
     
   }
 };

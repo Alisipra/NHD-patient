@@ -4,7 +4,7 @@ import { FiHome } from "react-icons/fi";
 import NavBars from "../Sections/navbar";
 import Footer from "../Sections/footer";
 import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import ToTop from "../Sections/totop";
+
 import { Link } from "react-router-dom";
 import axios from "axios";
 const url="https://nhd-server.vercel.app"
@@ -99,7 +99,7 @@ function OurTeam() {
       </div>
 
       <Footer />
-      <ToTop />
+      
     </div>
   );
 }

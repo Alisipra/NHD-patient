@@ -4,7 +4,7 @@ import Footer from "../Sections/footer";
 import NavBars from "../Sections/navbar";
 import Services from "../Sections/services";
 import Services2 from "../Sections/services2";
-import ToTop from "../Sections/totop";
+
 
 function Home() {
   return (
@@ -15,7 +15,7 @@ function Home() {
       <Services />
       <Services2 />
       <Footer />
-      <ToTop />
+      
     </div>
   );
 }

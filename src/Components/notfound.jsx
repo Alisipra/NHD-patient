@@ -4,7 +4,7 @@ import "./about.css";
 import { FiHome } from "react-icons/fi";
 import "./notfound.css";
 import "../index.css";
-import ToTop from "../Sections/totop";
+
 import { Link } from "react-router-dom";
 
 function NotFound() {
@@ -58,7 +58,7 @@ function NotFound() {
         </div>
       </section>
       <Footer />
-      <ToTop />
+      
     </div>
   );
 }

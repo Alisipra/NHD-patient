@@ -4,7 +4,6 @@ import "../index.css";
 import NavBars from "../Sections/navbar";
 import { FiHome } from "react-icons/fi";
 import Footer from "../Sections/footer";
-import ToTop from "../Sections/totop";
 import { Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios"; 
@@ -175,7 +174,7 @@ function Service() {
         </>
       )}
       <Footer />
-      <ToTop />
+      
     </div>
   );
 }

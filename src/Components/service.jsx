@@ -11,7 +11,7 @@ import NavBars from "../Sections/navbar";
 import { FiHome } from "react-icons/fi";
 import { RiSurgicalMaskFill } from "react-icons/ri";
 import Footer from "../Sections/footer";
-import ToTop from "../Sections/totop";
+
 import { Link } from "react-router-dom";
 
 function Service() {
@@ -125,7 +125,7 @@ function Service() {
         </div>
       </section>
       <Footer />
-      <ToTop />
+      
     </div>
   );
 }

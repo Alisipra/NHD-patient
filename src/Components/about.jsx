@@ -1,7 +1,7 @@
 import AboutUs from "../Sections/aboutus";
 import NavBars from "../Sections/navbar";
 import Footer from "../Sections/footer";
-import ToTop from "../Sections/totop";
+
 import "./about.css";
 import Services2 from "../Sections/services2";
 import { FiHome } from "react-icons/fi";
@@ -36,7 +36,7 @@ function About() {
       <AboutUs />
       <Services2 />
       <Footer />
-      <ToTop />
+      
     </div>
   );
 }

@@ -19,25 +19,77 @@ function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
   const navigate = useNavigate();
-  const handleClick = (e) => {
-    try {
-      dispatch(authLogin(form)).then((res) => {
-        
-        if (res.message === "Login Successful") {
-          notify("Login Successful");
-          return navigate("/");
-        }
-        if (res.message === "Wrong credentials, Please try again.") {
-          return notify("Wrong credentials, Please try again.");
-        }
-        if (res.message === "Error occurred, unable to Login.") {
-        }
-      });
-    } catch (error) {
-      console.error(error);
-      return notify("Error occurred, unable to Login.");
+// const handleClick = (e) => {
+//   try {
+//     dispatch(authLogin(form)).then((res) => {
+//       console.log("our message ",res.response.data)
+//       if (res.message === "Login Successful") {
+//         notify("Login Successful");
+
+//         // ✅ Save token correctly
+//         localStorage.setItem("patientToken", res.token); 
+
+//         return navigate("/");
+//       }
+
+//       if (res.message === "Patient not found or wrong credentials.") {
+//         return notify("Wrong credentials, Please try again.");
+//       }
+
+//       if (res.message === "Error occurred, unable to Login.") {
+//         return notify("Error occurred, unable to Login.");
+//       }
+//     });
+//   } catch (error) {
+//     console.error(error);
+//     return notify("Error occurred, unable to Login.");
+//   }
+// };
+
+
+
+
+
+const handleClick = async (e) => {
+  e.preventDefault(); // Prevent default form submission
+
+  try {
+    const res = await dispatch(authLogin(form));
+
+    const data = res?.response?.data || res;
+
+    // Success case
+    if (data.message === "Login Successful") {
+      if (!data.token) {
+        notify("Login succeeded but token is missing.");
+        return;
+      }
+
+      localStorage.setItem("patientToken", data.token);
+      notify("Login Successful");
+      navigate("/");
+      return;
     }
-  };
+
+    // Show backend message
+    notify(data.message || "Unexpected error occurred.");
+
+  } catch (error) {
+    console.error("Login error:", error);
+
+    // ✅ Show backend error message if available
+    const backendMessage = error?.response?.data?.message;
+
+    if (backendMessage) {
+      notify(backendMessage);
+    } else {
+      notify("Network error or server not responding.");
+    }
+  }
+};
+
+
+
   const [forgotLoading, setforgetLoading] = useState(false);
   const HandlePassword = () => {
     let data = { email, type: "patient" };
@@ -91,7 +143,8 @@ function Login() {
                   <div className="form-group" onClick={handleClick}>
                     <Link
                       type="botton"
-                      className="btn mb-30 btn-lg btn-success w-100"
+                      className="btn mb-30 btn-lg  w-100"
+                      id="btn_login"
                     >
                       Login
                     </Link>
